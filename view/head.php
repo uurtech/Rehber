@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8">
 <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
-<script src="js/index.js" type="text/javascript"></script>
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
 <?php
 if(isset($_SESSION['yetki'])){
