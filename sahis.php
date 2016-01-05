@@ -1,5 +1,5 @@
 <?php
-include("view/conn.php");
+include("inc/conn.php");
 
 class Sahis extends Connection{
 
@@ -7,12 +7,12 @@ class Sahis extends Connection{
     parent::__construct();
   }
 
-  function insert($ad,$eposta,$telefon,$sifre){
-    $query = $this->pdo->prepare("INSERT INTO owners(ad,eposta,telefon,sifre) VALUES(?,?,?,?)");
+  function insert($ad,$eposta,$telefon,$dipnot){
+    $query = $this->pdo->prepare("INSERT INTO owners(ad,eposta,telefon,dipnot) VALUES(?,?,?,?)");
     $query->bindValue(1,$ad);
     $query->bindValue(2,$eposta);
     $query->bindValue(3,$telefon);
-    $query->bindValue(4,$sifre);
+    $query->bindValue(4,$dipnot);
     return $query->execute();
   }
 }
@@ -21,9 +21,9 @@ $sahiss = new Sahis;
 $ad = $_POST['ad'];
 $eposta = $_POST['eposta'];
 $telefon = $_POST['telefon'];
-$sifre = $_POST['sifre'];
+$dipnot = $_POST['dipnot'];
 
-if($sahiss->insert($ad,$eposta,$telefon,$sifre)){
+if($sahiss->insert($ad,$eposta,$telefon,$dipnot)){
   echo "basarili";
 }else{
   echo "hatali";
